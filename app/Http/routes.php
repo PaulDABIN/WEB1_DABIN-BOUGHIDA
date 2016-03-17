@@ -50,7 +50,9 @@ Route::group(['middleware' => ['web']], function () {
         return 'Article n°'.$id;
     });
      */
-
+    Route::get('/profil', function() {
+        return 'ok';
+    });
 
     Route::resource('/articles', 'PostController');
 
@@ -64,7 +66,15 @@ Route::group(['middleware' => ['web']], function () {
         return view('welcome', ['id' => 100]);
     });
 
+    Route::get('/contact', function () {
+        return view('contact');
+    });
+
     Route::get('/home', 'HomeController@index');
+
+    Route::get('/posts', function(){
+        return view('posts.index');
+    });
 
 });
 

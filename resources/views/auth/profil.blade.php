@@ -1,4 +1,4 @@
-@extends('layouts.app', ['pageTitle' => 'Articles n°'.$post->id])
+@extends('layouts.app', ['pageTitle' => 'Profil'.$post->id])
 
 @section('content')
     <h2>{{$post->title}} <br> Auteur: {{ $post->user->name }} </h2>

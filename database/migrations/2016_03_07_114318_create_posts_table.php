@@ -18,11 +18,6 @@ class CreatePostsTable extends Migration
             $table->longText('content');
             $table->timestamps();
         });
-
-        Schema::table('posts', function(Blueprint $table) {
-            $table->foreign('user_id')->references('id')->on('users');
-        });
-
     }
 
     /**

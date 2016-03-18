@@ -3,6 +3,7 @@
 @section('content')
 
     <div class="container">
+
     @if(Session::has('erreur'))
         <h1>{{Session::get('erreur')}}</h1>
     @endif

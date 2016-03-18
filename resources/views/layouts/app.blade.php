@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Plateforme Projet</title>
+    <title>Plateforme Gestion des Projets</title>
 
     <!-- Fonts -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css" rel='stylesheet' type='text/css'>
@@ -18,11 +18,15 @@
     <style>
         body {
             font-family: 'Lato';
-            font-weight:300;
+
         }
         h1{
-            font-weight:200;
+            font-weight:400;
+            color:#FF8C00;
+
         }
+
+
         .fa-btn {
             margin-right: 6px;
         }
@@ -47,36 +51,26 @@
                 <span class="icon-bar"></span>
             </button>
 
-            <!-- Branding Image -->
-            <a class="navbar-brand" href="{{ url('/') }}">
-                <img src="http://www.iim.fr/ecole-web/wp-content/uploads/2013/06/log_iim_site_web.png" height="50">
-            </a>
+
         </div>
 
         <div class="collapse navbar-collapse" id="app-navbar-collapse">
             <!-- Left Side Of Navbar -->
             <ul class="nav navbar-nav">
                 <li><a href="{{ url('/home') }}">Accueil</a></li>
-                @if (Auth::check() && Auth::user()->admin == 1)
-                    <li><a href="{{ route('admin.index') }}">Administration</a></li>
-                    <li><a href="{{ route('articles') }}">Rédiger un article</a></li>
-                    <li><a href="{{ route('user.index') }}">Les utilisateurs</a></li>
-
-
-                @elseif (Auth::check())
-                    <li><a href="{{ route('projet.create') }}">Soumettre un projet</a></li>
-                    <li><a href="{{ route('projet.index') }}">Mon projet</a></li>
-                    <li><a href="{{ route('contact.create') }}">Contactez-nous</a></li>
+                @if (Auth::check())
+                    <li><a href="{{ route('projet.create') }}">Nouveau projet</a></li>
+                    <li><a href="{{ route('contact.create') }}">Contact</a></li>
+                    <li><a href="{{ route('articles.create') }}">Nouvel article</a></li>
                 @endif
 
-                <li><a href="{{ route('articles.index') }}">Blog</a></li>
+                <li><a href="{{ route('articles.index') }}">Articles</a></li>
             </ul>
 
             <!-- Right Side Of Navbar -->
             <ul class="nav navbar-nav navbar-right">
                 <!-- Authentication Links -->
                 @if (Auth::guest())
-
                     <li><a href="{{ url('/login') }}">Login</a></li>
                     <li><a href="{{ url('/register') }}">Register</a></li>
                 @else

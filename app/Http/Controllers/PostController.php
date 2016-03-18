@@ -1,5 +1,7 @@
 <?php
 
+// controller pour la gestion des articles (permet de définir les actions
+//pour afficher tous les commentaires, afficher 1 commentaires, ajouter ou delete un article
 namespace App\Http\Controllers;
 
 use App\Models\Comment;
@@ -27,11 +29,6 @@ class PostController extends Controller
      */
     public function create()
     {
-        /*$post = new Post;
-        $post->title = 'Un autre article';
-        $post->description = 'Une autre description';
-        $post->save();
-        return 'Formulaire';*/
         $users = User::all()->lists('name', 'id');
         return view('articles.create')->with(compact('users'));
     }
@@ -60,7 +57,6 @@ class PostController extends Controller
      */
     public function show($id)
     {
-//            $post = Post::find($id);
         $post = Post::where('id','=',$id)->get()->first();
         $comments = $post->comments;
         return view('articles.show')->with(compact('post','comments'));
@@ -73,7 +69,6 @@ class PostController extends Controller
      */
     public function edit($id)
     {
-        /*return view('articles.edit')->with(compact($id));*/
         $post   = Post::find($id);
         $users  = User::all()->lists('name', 'id')  ;
         return view('articles.edit')->with(compact('post', 'users'));
@@ -90,7 +85,6 @@ class PostController extends Controller
         $post = Post::find($id);
         $post->title   = $request->title;
         $post->content = $request->content;
-        /*$post->user_id = $request->user_id;*/
         $post->save();
         return redirect()->route('articles.show', $post->id);
     }

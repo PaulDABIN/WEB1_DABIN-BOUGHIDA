@@ -1,5 +1,7 @@
 <?php
 
+// controller pour la gestion des commentaires (permet de définir les actions
+//pour afficher tous les commentaires, afficher 1 commentaires, ajouter ou delete un commentaire
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;

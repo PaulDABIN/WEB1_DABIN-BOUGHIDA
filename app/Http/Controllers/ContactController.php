@@ -1,6 +1,8 @@
 <?php
 
-namespace App\Http\Controllers;
+// controller pour la gestion des commentaires (permet de définir les actions
+//pour  ajouter un formulaire de contact
+
 
 namespace App\Http\Controllers;
 use Illuminate\Http\Request;

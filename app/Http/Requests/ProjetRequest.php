@@ -1,5 +1,10 @@
 <?php
 
+
+//le controller permet de mettre des obligations pour vérifier des données avant que le
+//formulaire ne soit envoyé
+
+
 namespace App\Http\Requests;
 use App\Http\Requests\Request;
 class ProjetRequest extends Request

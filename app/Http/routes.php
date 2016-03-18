@@ -24,75 +24,42 @@ use Illuminate\Http\Request;
 |
 */
 
+//les routes permettent de charger des controller ou des views quand on rentre
+//des mots précis dans l'url
+
 Route::group(['middleware' => ['web']], function () {
-    /**
-    Route::get('/contact', function() {
-        return 'page contact';
-    });
 
-    Route::get('/articles', function(){
-        return 'Mes articles:';
-    });
-
-    Route::get('/articles/create', function() {
-        return view('articles.create');
-    });
-
-    Route::delete('/articles/{id}', function($id){
-       //Code pour supprimer un article
-    });
-
-    Route::post('/articles', function(Request $request) {
-        dd($request->all());
-    });
-
-    Route::get('/articles/{id}', function($id){
-        return 'Article n°'.$id;
-    });
-     */
-    //Route::get('/profil/{id}', 'UserController@show')->where('id', '[0-9]+');
-/*
-    Route::resource('/articles', 'PostController');
-
-    Route::get('/projet/create', function() {
-        return view('projet.create');
-    });
-
-    Route::get('/contact', ['as' => 'page.contact', 'uses' => function() {
-        return 'ok';
-    }]);
-
-    Route::auth();
-
-    Route::get('/', function () {
-        /*return view('welcome', ['id' => 100]);*/
-/*
-        return view ('home');
-    });
-
-    Route::get('/contact', function () {
-        return view('contact');
-    });
-
-    Route::get('/home', 'HomeController@index');
-
-    Route::get('/articles', function(){
-        return view('articles.index');
-    });*/
-
-    //Route::post('projet', [ 'as' => 'projet', 'uses' => 'ProjetController']);
-    Route::resource('/articles','PostController');
-    Route::resource('/projet', 'ProjetController');
-    Route::resource('/user', 'UserController');
-    Route::get('/user/projects', 'UserController@showProjects');
-    Route::resource('/comments', 'CommentController');
-    Route::resource('/contact', 'ContactController');
+    //route pour la page d'arrivée
     Route::get('/', function () {
         return view('welcome');
     });
-    Route::resource('/admin', 'AdminController');
+
+    Route::get('/logout', function () {
+        return view('logout');
+    });
+
+    //route pour la connection
+    Route::resource('/user', 'UserController');
+
+    //route pour le formulaire de contact
+    Route::resource('/contact', 'ContactController');
+
+    //route pour la connection
     Route::get('/home', 'HomeController@index');
 
+    //route pour l'afficha des articles
+    Route::resource('/articles','PostController');
 
+    //route pour la gestion des projets
+    // ne fonctionne pas
+    Route::resource('/projet', 'ProjetController');
+
+    //route pour l'affichage des afficher un projet de l'utilisateur
+    //ne fonctionne pas
+    Route::get('/user/projects', 'UserController@showProjects');
+
+    //route pour les commentaires
+    //ne fonctionne pas
+    Route::resource('/comments', 'CommentController');
 });
 

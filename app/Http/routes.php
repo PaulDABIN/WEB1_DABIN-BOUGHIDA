@@ -34,10 +34,6 @@ Route::group(['middleware' => ['web']], function () {
         return view('welcome');
     });
 
-    Route::get('/logout', function () {
-        return view('logout');
-    });
-
     //route pour la connection
     Route::resource('/user', 'UserController');
 

@@ -18,7 +18,7 @@ class PostController extends Controller
     public function index()
     {
         $posts = Post::all();
-        return view('posts.index')->with(compact('posts'));
+        return view('articles.index')->with(compact('posts'));
     }
     /**
      * Show the form for creating a new resource.
@@ -33,7 +33,7 @@ class PostController extends Controller
         $post->save();
         return 'Formulaire';*/
         $users = User::all()->lists('name', 'id');
-        return view('posts.create')->with(compact('users'));
+        return view('articles.create')->with(compact('users'));
     }
     /**
      * Store a newly created resource in storage.
@@ -49,7 +49,7 @@ class PostController extends Controller
         $post->content  = $request->content;
         $post->save();
         return redirect()
-            ->route('posts.show', $post->id)
+            ->route('articles.show', $post->id)
             ->with(compact('post'));
     }
     /**
@@ -63,7 +63,7 @@ class PostController extends Controller
 //            $post = Post::find($id);
         $post = Post::where('id','=',$id)->get()->first();
         $comments = $post->comments;
-        return view('posts.show')->with(compact('post','comments'));
+        return view('articles.show')->with(compact('post','comments'));
     }
     /**
      * Show the form for editing the specified resource.
@@ -76,7 +76,7 @@ class PostController extends Controller
         /*return view('articles.edit')->with(compact($id));*/
         $post   = Post::find($id);
         $users  = User::all()->lists('name', 'id')  ;
-        return view('posts.edit')->with(compact('post', 'users'));
+        return view('articles.edit')->with(compact('post', 'users'));
     }
     /**
      * Update the specified resource in storage.
@@ -92,7 +92,7 @@ class PostController extends Controller
         $post->content = $request->content;
         /*$post->user_id = $request->user_id;*/
         $post->save();
-        return redirect()->route('posts.show', $post->id);
+        return redirect()->route('articles.show', $post->id);
     }
     /**
      * Remove the specified resource from storage.
@@ -104,6 +104,6 @@ class PostController extends Controller
     {
         $post = Post::find($id);
         $post->delete();
-        return redirect()->route('posts.index');
+        return redirect()->route('articles.index');
     }
 }

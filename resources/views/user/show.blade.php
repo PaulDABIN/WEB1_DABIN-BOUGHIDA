@@ -20,7 +20,7 @@
         </div>
 
     @else
-        @include('partials.posts.401')
+        @include('articles')
 
     @endif
 

@@ -32,7 +32,7 @@ class AddColumnProjets extends Migration
      */
     public function down()
     {
-        Schema::table('posts', function (Blueprint $table) {
+        Schema::table('articles', function (Blueprint $table) {
             //$table->dropIfExists('user_id');
 
             $table->longText('identite')->after('id');

@@ -59,7 +59,7 @@
                 <li><a href="{{ url('/home') }}">Accueil</a></li>
                 @if (Auth::check() && Auth::user()->admin == 1)
                     <li><a href="{{ route('admin.index') }}">Administration</a></li>
-                    <li><a href="{{ route('posts.create') }}">Rédiger un article</a></li>
+                    <li><a href="{{ route('articles') }}">Rédiger un article</a></li>
                     <li><a href="{{ route('user.index') }}">Les utilisateurs</a></li>
 
 
@@ -69,7 +69,7 @@
                     <li><a href="{{ route('contact.create') }}">Contactez-nous</a></li>
                 @endif
 
-                <li><a href="{{ route('posts.index') }}">Blog</a></li>
+                <li><a href="{{ route('articles.index') }}">Blog</a></li>
             </ul>
 
             <!-- Right Side Of Navbar -->

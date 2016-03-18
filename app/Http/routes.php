@@ -76,12 +76,12 @@ Route::group(['middleware' => ['web']], function () {
 
     Route::get('/home', 'HomeController@index');
 
-    Route::get('/posts', function(){
-        return view('posts.index');
+    Route::get('/articles', function(){
+        return view('articles.index');
     });*/
 
     //Route::post('projet', [ 'as' => 'projet', 'uses' => 'ProjetController']);
-    Route::resource('/posts','PostController');
+    Route::resource('/articles','PostController');
     Route::resource('/projet', 'ProjetController');
     Route::resource('/user', 'UserController');
     Route::get('/user/projects', 'UserController@showProjects');

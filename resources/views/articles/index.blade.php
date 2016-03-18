@@ -1,6 +1,8 @@
 @extends('layouts.app', ['pageTitle' => 'Liste des articles'])
 
 @section('content')
+
+    <div class="container">
     @if(Session::has('erreur'))
         <h1>{{Session::get('erreur')}}</h1>
     @endif
@@ -23,4 +25,7 @@
             </form>
         @endif
     @endforeach
+
+    </div>
+
 @endsection

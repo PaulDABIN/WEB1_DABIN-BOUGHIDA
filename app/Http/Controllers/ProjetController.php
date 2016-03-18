@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers;
 
+
 use App\Models\User;
 use Illuminate\Http\Request;
 use App\Http\Requests;
-use App\Models\ProjetModel;
+use App\Models\Projet;
 use Illuminate\Support\Facades\Auth;
 class ProjetController extends Controller
 {
@@ -16,7 +17,7 @@ class ProjetController extends Controller
      */
     public function index()
     {
-        $projets = Projetmodel::all();
+        $projets = Projet::all();
         return view('projet.index')->with(compact('projets'));
     }
     /**
@@ -38,7 +39,7 @@ class ProjetController extends Controller
      */
     public function store(Requests\ProjetRequest $request)
     {
-        $projet = new Projetmodel;
+        $projet = new Projet;
         $projet->user_id       = Auth::user()->id;
         $projet->username      = Auth::user()->name;
         $projet->id            = $request->id;
@@ -64,7 +65,7 @@ class ProjetController extends Controller
     public function show($id)
     {
         try{
-            $projet = ProjetModel::findOrFail($id);
+            $projet = Projet::findOrFail($id);
             return view('projet.show')->with(compact('projet'));
         }catch(\Exception $e){
             return redirect()->route('projet.index')->with(['erreur'=>'Whoooooops']);
@@ -79,7 +80,7 @@ class ProjetController extends Controller
      */
     public function edit($id)
     {
-        $projet   = ProjetModel::find($id);
+        $projet   = Projet::find($id);
         $users  = User::all()->lists('name', 'id')  ;
         return view('projet.edit')->with(compact('projet', 'users'));    }
     /**
@@ -91,7 +92,7 @@ class ProjetController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $projet = ProjetModel::find($id);
+        $projet = Projet::find($id);
         $projet->validate      = $request->validate;
         $projet->name          = $request->name;
         $projet->username      = $request->username;

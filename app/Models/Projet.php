@@ -2,9 +2,9 @@
 
 namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
-class ProjetModel extends Model
+class BapModel extends Model
 {
-    public function projet(){
+    public function bap(){
         return $this->belongsTo('App\Models\User');
     }
 }

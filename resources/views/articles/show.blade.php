@@ -1,7 +1,9 @@
 @extends('layouts.app', ['pageTitle' => 'Articles n°'.$post->id])
 
 @section('content')
-    <div><h2>{{$post->title}} <br> Auteur: {{ $post->user->name }} </h2>
+    <div class="container">
+
+        <div><h2>{{$post->title}} <br> Auteur: {{ $post->user->name }} </h2>
     <p>{{$post->content}}</p>
 
 
@@ -29,4 +31,6 @@
     {{-- Champs du formulaire --}}
     {!! Form::submit('Envoyer') !!}
     {!! Form::close() !!}
+
+    </div>
 @endsection

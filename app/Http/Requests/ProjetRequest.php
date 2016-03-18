@@ -1,14 +1,8 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: Paul
- * Date: 18/03/2016
- * Time: 05:56
- */
 
 namespace App\Http\Requests;
 use App\Http\Requests\Request;
-class BapProjetRequest extends Request
+class ProjetRequest extends Request
 {
     /**
      * Determine if the user is authorized to make this request.

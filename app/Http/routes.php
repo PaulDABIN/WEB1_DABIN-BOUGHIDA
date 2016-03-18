@@ -51,8 +51,12 @@ Route::group(['middleware' => ['web']], function () {
     });
      */
     //Route::get('/profil/{id}', 'UserController@show')->where('id', '[0-9]+');
-
+/*
     Route::resource('/articles', 'PostController');
+
+    Route::get('/projet/create', function() {
+        return view('projet.create');
+    });
 
     Route::get('/contact', ['as' => 'page.contact', 'uses' => function() {
         return 'ok';
@@ -62,7 +66,7 @@ Route::group(['middleware' => ['web']], function () {
 
     Route::get('/', function () {
         /*return view('welcome', ['id' => 100]);*/
-
+/*
         return view ('home');
     });
 
@@ -74,7 +78,21 @@ Route::group(['middleware' => ['web']], function () {
 
     Route::get('/posts', function(){
         return view('posts.index');
+    });*/
+
+    //Route::post('projet', [ 'as' => 'projet', 'uses' => 'ProjetController']);
+    Route::resource('/posts','PostController');
+    Route::resource('/projet', 'ProjetController');
+    Route::resource('/user', 'UserController');
+    Route::get('/user/projects', 'UserController@showProjects');
+    Route::resource('/comments', 'CommentController');
+    Route::resource('/contact', 'ContactController');
+    Route::get('/', function () {
+        return view('welcome');
     });
+    Route::resource('/admin', 'AdminController');
+    Route::get('/home', 'HomeController@index');
+
 
 });
 

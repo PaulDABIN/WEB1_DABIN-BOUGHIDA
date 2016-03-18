@@ -1,4 +1,4 @@
-@extends('layouts.app', ['pageTitle' => 'Edition du projet n°'.$post->id])
+@extends('layouts.app', ['pageTitle' => 'Edition de l\'article n°'.$post->id])
 
 @section('content')
     @include('partials.articles.form', ['action' => 'edit'])

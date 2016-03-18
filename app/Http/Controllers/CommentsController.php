@@ -4,15 +4,13 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\User;
+use App\Models\Post;
+use App\Models\Comment;
 use App\Http\Requests;
 use Illuminate\Support\Facades\Auth;
-class UserController extends Controller
+
+class CommentController extends Controller
 {
-    public function __construct()
-    {
-        //Admin à tous les droits, il peut tout voir
-//            $this->middleware('admin')->except('index', 'edit');
-    }
     /**
      * Display a listing of the resource.
      *
@@ -20,8 +18,8 @@ class UserController extends Controller
      */
     public function index()
     {
-        $users = User::all();
-        return view('user.index')->with(compact('users'));
+        $comments = Comment::all();
+        return view('comments.index')->with(compact('comments'));
     }
     /**
      * Show the form for creating a new resource.
@@ -30,9 +28,8 @@ class UserController extends Controller
      */
     public function create()
     {
-        $users = User::all()->lists('name', 'username', 'type',
-            'descriptif', 'context', 'objectif', 'contrainte');
-        return view('user.create')->with(compact('users'));
+        $comments = Comment::all()->lists('id', 'comment');
+        return view('comments.create')->with(compact('comments'));
     }
     /**
      * Store a newly created resource in storage.
@@ -42,17 +39,15 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        $user = new User;
-        $user->id  = Auth::user()->id;
-        $user->id            = $request->id;
-        $user->name          = $request->name;
-        $user->admin          = $request->admin;
-        $user->email          = $request->email;
-        $user->password          = $request->password;
-        $user->save();
+        $comments = new Comment;
+        $comments->user_id  = Auth::user()->id;
+        $comments->id    = $request->id;
+        $comments->comments  = $request->comments;
+        $comments->post_id  = $request->post->id;
+        $comments->save();
         return redirect()
-            ->route('user.show', $user->id)
-            ->with(compact('user'));
+            ->route('comments.show', $comments->id)
+            ->with(compact('comments'));
     }
     /**
      * Display the specified resource.
@@ -62,8 +57,12 @@ class UserController extends Controller
      */
     public function show($id)
     {
-        $user = User::find($id);
-        return view('user.show')->with(compact('user'));
+        try{
+            $comments = Post::findOrFail($id);
+            return view('comments.show')->with(compact('comments'));
+        }catch(\Exception $e){
+            return redirect()->route('comments.index')->with(['erreur' => 'Oopssss']);
+        }
     }
     /**
      * Show the form for editing the specified resource.
@@ -73,9 +72,8 @@ class UserController extends Controller
      */
     public function edit($id)
     {
-        $user   = User::find($id);
-        $users  = User::all()->lists('name', 'id')  ;
-        return view('user.edit')->with(compact('user', 'users'));    }
+        //
+    }
     /**
      * Update the specified resource in storage.
      *
@@ -85,13 +83,7 @@ class UserController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $user = User::find($id);
-        $user->name          = $request->name;
-        $user->admin          = $request->admin;
-        $user->email          = $request->email;
-        $user->password          = $request->password;
-        $user->save();
-        return redirect()->route('user.show', $user->id);
+        //
     }
     /**
      * Remove the specified resource from storage.

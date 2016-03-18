@@ -12,7 +12,7 @@ class CreateProjetsTable extends Migration
      */
     public function up()
     {
-        Schema::create('projets', function (Blueprint $table) {
+        Schema::create('projet', function (Blueprint $table) {
             $table->increments('id');
             $table->timestamps();
         });
@@ -25,6 +25,6 @@ class CreateProjetsTable extends Migration
      */
     public function down()
     {
-        Schema::drop('projets');
+        Schema::drop('projet');
     }
 }

@@ -1,6 +1,6 @@
 @extends('layouts.app', ['pageTitle' => 'Articles n°'.$post->id])
 
 @section('content')
-    <h2>{{$post->title}} <br> Auteur: {{ $post->user->name }} </h2>
-    <p>{{$post->content}}</p>
+    <h2>{{$comments->id}}</h2>
+    <p>{{$comments->comment}}</p>
 @endsection

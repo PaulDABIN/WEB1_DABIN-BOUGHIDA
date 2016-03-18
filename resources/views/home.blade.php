@@ -2,6 +2,6 @@
 
 @section('content')
 
- You are logged in!
+Bienvenue
 
 @endsection

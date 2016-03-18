@@ -50,9 +50,7 @@ Route::group(['middleware' => ['web']], function () {
         return 'Article n°'.$id;
     });
      */
-    Route::get('/profil', function() {
-        return 'ok';
-    });
+    //Route::get('/profil/{id}', 'UserController@show')->where('id', '[0-9]+');
 
     Route::resource('/articles', 'PostController');
 
@@ -63,7 +61,9 @@ Route::group(['middleware' => ['web']], function () {
     Route::auth();
 
     Route::get('/', function () {
-        return view('welcome', ['id' => 100]);
+        /*return view('welcome', ['id' => 100]);*/
+
+        return view ('home');
     });
 
     Route::get('/contact', function () {

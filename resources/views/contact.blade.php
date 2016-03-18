@@ -2,13 +2,34 @@
 @section('content')
 {!! Form::open(array('url' => '/post', 'method' => 'POST')) !!}
 
-
 {!! Form::token() !!}
-{!! Form::label('nom', 'Votre nom') !!}
-{!! Form::label('prénom', 'Votre prénom') !!}
 
-{!! Form::text('name_du_champs', 'value',
-['class', 'maClasse', 'placeholder', 'Mon champs']) !!}
+<div class="form-group">
+    {!! Form::text('title', null, [
+        'class' => 'form-control',
+        'placeholder' => 'Prenom'
+    ]) !!}
+</div>
+
+<div class="form-group">
+    {!! Form::text('title', null, [
+        'class' => 'form-control',
+        'placeholder' => 'Nom'
+    ]) !!}
+</div>
+
+<div class="form-group">
+    {!! Form::email('title', null, [
+        'class' => 'form-control',
+        'placeholder' => 'Mail'
+    ]) !!}
+</div>
+
+<div class="form-group">
+    {!! Form::textarea('content', null, ['class' => 'form-control']) !!}
+</div>
+
+
 
 {{-- Champs du formulaire --}}
 {!! Form::submit('Envoyer') !!}

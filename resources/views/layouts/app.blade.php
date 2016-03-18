@@ -50,6 +50,7 @@
                     <li><a href="{{ url('/home') }}">Home</a></li>
                     <li><a href="{{ url('/articles') }}">Articles</a></li>
                     <li><a href="{{ url('/articles/create') }}">Nouvel article</a></li>
+                    <li><a href="{{ url('/contact') }}">Contact</a></li>
                 </ul>
 
                 <!-- Right Side Of Navbar -->

@@ -18,7 +18,7 @@
 
                                 <p><b>Nom </b>{{$user->name}}</p>
                                 <p><b>Email </b>{{$user->email}}</p>
-                                {{--<p><b>Mot de passe </b>{{$user->password}}</p>--}}
+
                                 <p><b>Création le </b>{{$user->created_at}}</p>
                                 <p><b>Mis à jour le </b>{{$user->updated_at}}</p>
                                 <p><b>Catégorie </b>
@@ -29,9 +29,9 @@
                                     @endif
                                 </p>
 
-                                {{--Bouton pour valider le projet, appelle la fonction edit du BapController pour modifier la valeur dans la bdd--}}
 
-                                <a href="{{ route('user.edit', $user->id)}}" class="btn btn-success btn-line btn-rect">
+
+                                <a href="{{ route('user.edit', $user->id)}}" class="btn btn-default btn-line btn-rect">
                                     <i class="fa fa-pencil"></i> Editer
                                 </a>
 
@@ -50,7 +50,7 @@
 
                             <p><b>Nom </b>{{$user->name}}</p>
                             <p><b>Email </b>{{$user->email}}</p>
-                            {{--<p><b>Mot de passe </b>{{$user->password}}</p>--}}
+
                             <p><b>Création le </b>{{$user->created_at}}</p>
                             <p><b>Mis à jour le </b>{{$user->updated_at}}</p>
                             <p><b>Rôle </b>
@@ -61,7 +61,7 @@
                                 @endif
                             </p>
 
-                            {{--Bouton pour valider le projet, appelle la fonction edit du BapController pour modifier la valeur dans la bdd--}}
+
 
                             <a href="{{ route('user.edit', $user->id)}}" class="btn btn-success btn-line btn-rect">
                                 <i class="fa fa-pencil"></i> Editer

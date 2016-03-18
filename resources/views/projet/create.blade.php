@@ -5,14 +5,12 @@
         <div class="row">
             <div class="col-md-10 col-md-offset-1">
                 <div class="panel panel-default">
-                    <div class="panel-heading">IIM - Bourse au projet</div>
+                    <div class="panel-heading"> Nouveau Projet</div>
 
                 </div>
-                <h1>Postez votre demande de Bourse au Projet</h1>
+                <h1>Remplissez ce formulaire</h1>
                 <div class="panel panel-default">
-                    <div class="panel-heading">
-                        Le formulaire de soumission
-                    </div>
+
                     <div class="panel-body">
 
 
@@ -21,20 +19,10 @@
                         <div class="form-group">
                             {!! Form::text('name', null, [
                             'class' => 'form-control',
-                            'placeholder' => 'Ex: Site vitrine d\'un restaurant'
+                            'placeholder' => 'Ex: Campagne de pub'
                             ]) !!}
                         </div>
 
-
-                        {{--  <div class="form-group">
-                             <label for="exampleInputEmail1">Nom du commanditaire du projet</label>
-
-                            {!! Form::text('username', null, [
-                                       'class' => 'form-control',
-                                       'placeholder' => 'Votre nom'
-                                   ]) !!}
-                                </div>
-                            --}}
 
 
                         <div class="form-group">
@@ -42,17 +30,19 @@
 
 
                             {!! Form::select('type', array(
-                            'site_internet' => 'Site Internet',
+                            'business_plan' =>'Business Plan',
                             '3d' =>'3D',
-                            '2d' =>'2D',
+                            'print' =>'Print',
                             'multimedia' =>'Installation Multimédia',
                             'jeu_video' =>'Jeu Vidéo',
+                            'site_internet' => 'Site Internet',
                             'dvd' =>'DVD',
-                            'print' =>'Print',
-                            'cd-rom' =>'CD-ROM',
                             'evenement' =>'Evenement',
+                            'cd-rom' =>'CD-ROM',
                             'appel_doffre' =>'Appel d\'offre',
-                            'business_plan' =>'Business Plan'
+                            '2d' =>'2D'
+
+
                             ),[
                             'class' => 'form-control', 'style'=>'display:inline;'])
                             !!}
@@ -60,9 +50,7 @@
                             <br/>
                             <br/>
 
-                            {{-- <label>
-                                 <input name="type" type="checkbox"> Autres
-                             </label>--}}
+
                             {!! Form::text('typeother', null, [
                                   'class' => ' ',
                                   'placeholder' => 'Autres'

@@ -25,7 +25,6 @@
                                 <a href="{{$projet->username}}}}"><p>{{$projet->username}}</p></a>
                                 <p>Type de projet {{$projet->type}}</p>
 
-                                {{--Bouton pour valider le projet, appelle la fonction edit du BapController pour modifier la valeur dans la bdd--}}
 
                                 <a href="{{ route('projet.edit', $projet->id)}}" class="btn btn-success btn-line btn-rect">
                                     <i class="fa fa-pencil">Editer</i>
@@ -34,7 +33,7 @@
                                 <br/>
                                 <br/>
 
-                                {{--Affiche si le projet est validé ou pas--}}
+
                                 <div class="text-center"
                                      @if($projet->validate == 1)
                                      style="position:absolute; bottom:0; color:green;"><i class="fa fa-check">Projet validé</i>

@@ -8,9 +8,9 @@
                 <div class="jumbotron">
                     <h1> Bienvenue
                         @if(Auth::check())
-                            sur la nouvelle plateforme pour vos projets bap</h1>
+                            </h1>
                     @else
-                        sur la nouvelle plateforme pour vos projets bap</h1>
+                        </h1>
                         <p>Inscrivez vous pour accéder au site</p>
 
                         <a href="register"><button class="btn btn-primary">Inscription</button></a>

@@ -18,6 +18,12 @@
             font-weight:400;
             color:#FF8C00;
         }
+
+        h2{
+            font-weight:400;
+            font-size:40px;
+            color:#FF8C00;
+        }
         .fa-btn {
             margin-right: 6px;
         }

@@ -6,11 +6,11 @@
             <div class="col-md-8 col-md-offset-2">
 
                 <div class="jumbotron">
-                    <h1> Bienvenue
+                    <h2> Bienvenue
                         @if(Auth::check())
-                           sur la nouvelle plateforme pour les projets de BAP </h1>
+                           </h2>
                     @else
-                        sur la nouvelle plateforme pour les projets de BAP</h1>
+                       </h2>
                         <p>Inscrivez vous pour accéder au site</p>
 
                         <a href="register"><button class="btn btn-primary">Inscription</button></a>

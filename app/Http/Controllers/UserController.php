@@ -10,8 +10,6 @@ class UserController extends Controller
 {
     public function __construct()
     {
-        //Admin à tous les droits, il peut tout voir
-//            $this->middleware('admin')->except('index', 'edit');
     }
     /**
      * Display a listing of the resource.

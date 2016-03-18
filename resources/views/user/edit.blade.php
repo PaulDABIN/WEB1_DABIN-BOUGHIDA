@@ -36,7 +36,7 @@
 
 
 
-            {!! Form::submit('Envoyer', ['class' => 'btn btn-block']) !!}
+            {!! Form::submit('Envoyer', ['class' => 'btn btn-default']) !!}
 
             {!! Form::close() !!}
         </div>

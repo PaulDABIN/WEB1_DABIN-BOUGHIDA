@@ -57,5 +57,7 @@ Route::group(['middleware' => ['web']], function () {
     //route pour les commentaires
     //ne fonctionne pas
     Route::resource('/comments', 'CommentController');
+
+    Route::auth();
 });
 
